@@ -1,0 +1,93 @@
+@font-face {
+    font-family: mainFont;
+    src: url(./fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+body{
+    background-color: #F2F0EF;
+    position: relative;
+}
+
+.formContainer{
+    position: absolute;
+    top: 230px;
+    left: 500px;
+    width: 500px;
+    height: 285px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+}
+
+img{
+    position: absolute;
+    top: 40px;
+    left: 112px;
+    float: left;
+    width: 60px;
+}
+
+h1{
+    margin-left: 70px;
+    text-align: center;
+    font-family: mainFont;
+    font-size: 1.5rem;
+}
+
+.inventory{
+    display: inline;
+    color: #00f;
+}
+
+span{
+    display: block;
+}
+
+.inputFields{
+    position: absolute;
+    left: 110px;
+    margin-top: 10px;
+}
+
+label{
+    font-size: 1.2rem;
+    font-family: mainFont;
+}
+
+input{
+    border-radius: 3px;
+    border-color: #F2F0EF;
+    display: block;
+    width: 180%;
+    height: 30px;
+}
+
+#username{
+    margin-bottom: 15px;
+}
+
+.button{
+    position: absolute;
+    top: 270px;
+    left: 356px;
+}
+
+button{
+    font-family: mainFont;
+    font-size: 1rem;
+    background: 
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(60deg, #00f, #00e8ff) border-box;
+    border: 3px solid transparent;
+    border-radius: 11px;
+    padding: 9px;
+}
+
+button:hover{
+    cursor: pointer;
+    background: 
+    linear-gradient(black, black) padding-box,
+    linear-gradient(60deg, #00f, #00e8ff) border-box;
+    color: #F2F0EF;
+}
