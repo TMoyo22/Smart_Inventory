@@ -56,11 +56,15 @@ label{
 }
 
 input{
-    border-radius: 3px;
+    border-radius: 5px;
     border-color: #F2F0EF;
     display: block;
     width: 180%;
     height: 30px;
+}
+
+input:focus{
+   border-color: #00f;
 }
 
 #username{
