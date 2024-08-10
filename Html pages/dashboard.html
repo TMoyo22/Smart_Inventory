@@ -8,8 +8,198 @@
             
             <title>Smart Inventory Management</title>
             <link rel="icon" type="image/png" href="./Assets/icon.png">
+        
         </head>
             <body>
-                
+                <div class="container">
+                    <aside>
+                         
+                       <div class="top">
+                         <div class="logo">
+                           <h2>SMART <span class="danger">STOCK</span> </h2>
+                         </div>
+                         <div class="close" id="close_btn">
+                          <span class="material-symbols-sharp">
+                            close
+                            </span>
+                         </div>
+                       </div>
+                       <!-- end top -->
+                        <div class="sidebar">
+              
+                          <a href="#">
+                            <span class="material-symbols-sharp">grid_view </span>
+                            <h3>Dashboard</h3>
+                         </a>
+              
+                         <a href="#">
+                            <span class="material-symbols-sharp">insights </span>
+                            <h3>Analytics</h3>
+                         </a>
+                         <a href="#">
+                            <span class="material-symbols-sharp">mail_outline </span>
+                            <h3>Messages</h3>
+                            <span class="msg_count">14</span>
+                         </a>
+              
+              
+                         <a href="#">
+                            <span class="material-symbols-sharp">add </span>
+                            <h3>Add Product</h3>
+                         </a>
+                         <a href="#">
+                            <span class="material-symbols-sharp">logout </span>
+                            <h3>logout</h3>
+                         </a>
+                           
+              
+              
+                        </div>
+              
+                    </aside>
+                    <!-- --------------
+                      end asid
+                    -------------------- -->
+              
+                    <!-- --------------
+                      start main part
+                    --------------- -->
+              
+                    <main>
+                         <h1>Dashboard</h1>
+                         <div class="date-and-search">
+                          <div class="date">
+                            <input type="date">
+                          </div>
+                      
+                          <div class="search-bar">
+                            <form action="#">
+                              <input type="text" placeholder="Search...">
+                              <button type="submit"><span class="material-symbols-sharp">search</span></button>
+                            </form>
+                          </div>
+                          </div>
+              
+                      <div class="insights">
+              
+                         <!-- start seling -->
+                          <div class="sales">
+                             <span class="material-symbols-sharp">trending_up</span>
+                             <div class="middle">
+              
+                               <div class="left">
+                                 <h3>Total Sales</h3>
+                                 <h1>$25,024</h1>
+                               </div>
+                                <div class="progress">
+                                    <svg>
+                                       <circle  r="30" cy="40" cx="40"></circle>
+                                    </svg>
+                                    <div class="number"><p>80%</p></div>
+                                </div>
+              
+                             </div>
+                             <small>Last 24 Hours</small>
+                          </div>
+                         <!-- end seling -->
+                            <!-- start expenses -->
+                            <div class="expenses">
+                              <span class="material-symbols-sharp">local_mall</span>
+                              <div class="middle">
+               
+                                <div class="left">
+                                  <h3>Total Sales</h3>
+                                  <h1>$25,024</h1>
+                                </div>
+                                 <div class="progress">
+                                     <svg>
+                                        <circle  r="30" cy="40" cx="40"></circle>
+                                     </svg>
+                                     <div class="number"><p>80%</p></div>
+                                 </div>
+               
+                              </div>
+                              <small>Last 24 Hours</small>
+                           </div>
+                          <!-- end seling -->
+                             <!-- start seling -->
+                             <div class="income">
+                              <span class="material-symbols-sharp">stacked_line_chart</span>
+                              <div class="middle">
+               
+                                <div class="left">
+                                  <h3>Total Sales</h3>
+                                  <h1>$25,024</h1>
+                                </div>
+                                 <div class="progress">
+                                     <svg>
+                                        <circle  r="30" cy="40" cx="40"></circle>
+                                     </svg>
+                                     <div class="number"><p>80%</p></div>
+                                 </div>
+               
+                              </div>
+                              <small>Last 24 Hours</small>
+                           </div>
+                          <!-- end seling -->
+              
+                      </div>
+                     <!-- end insights -->
+                    <div class="recent_order">
+                       <h2>Recent Orders</h2>
+                       <table> 
+                           <thead>
+                            <tr>
+                              <th>Product Number</th>
+                              <th>Product Name</th>
+                              <th>Barcode</th>
+                              <th>Status</th>
+                            </tr>
+                           </thead>
+                            <tbody>
+                               <tr>
+                                <td>4563</td>
+                                <td>Vaseline Blueseal</td>                   
+                                <td>6001085120946</td>
+                                <td class="warning">Expires in 10 months</td>
+                                <td class="primary">Details</td>
+                               </tr>
+                               <tr>
+                                <td>4564</td>
+                                <td>BB Bread</td>                  
+                                <td>6001205730321</td>
+                                <td class="warning">Expires in 3 days</td>
+                                <td class="primary">Details</td>
+                              </tr>
+                              <tr>
+                                <td>4565</td>
+                                <td>Mini USB</td>                  
+                                <td>Due</td>
+                                <td class="warning">Pending</td>
+                                <td class="primary">Details</td>
+                              </tr>
+                              <tr>
+                                <td>4566</td>
+                                <td>Mini USB</td>                  
+                                <td>Due</td>
+                                <td class="warning">Pending</td>
+                                <td class="primary">Details</td>
+                              </tr>
+                            </tbody>
+                       </table>
+                       <a href="#">Show All</a>
+                    </div>
+              
+                    </main>
+                    <!------------------
+                       end main
+                      ------------------->
+              
+              
+                 </div>
+              
+              
+              
+                 <script src="script.js"></script>
             </body>
     </html>
