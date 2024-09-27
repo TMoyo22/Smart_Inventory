@@ -64,7 +64,19 @@ input{
 }
 
 input:focus{
-   border-color: #00f;
+   outline-color: #00f;
+}
+
+input:not(:placeholder-shown):valid{
+    outline-color: green;
+}
+
+input:not(:placeholder-shown):invalid{
+    outline-color: red;
+}
+
+input:focus:invalid{
+    outline-color: orange;
 }
 
 #username{
