@@ -1,9 +1,8 @@
 const bcrypt = require("bcrypt");
-const client = require("pg");
-const jwt = require("jsonwebtoken");
+const client = require("./databasepg");
+const jwt = require("json-web-token");
 
 //Verifying if the user exists in the database
-const user = data.rows;
 exports.login = async (req, res) => {
     const { username, password } = req.body;
     try {
