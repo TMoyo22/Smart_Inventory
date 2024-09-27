@@ -1,11 +1,13 @@
 const {Client} = require('pg');
+const dotenv = require('dotenv');
+
 
 const client = new Client({
-    host: "localhost",
-    user: "postgres",
-    port: 5432,
-    password: "Chelseafc",
-    database: "Smart Inventory Management"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: parseInt(process.env.DB_PORT),
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME 
 })
 
 
