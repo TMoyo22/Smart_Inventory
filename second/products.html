@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-content">
+    <div class="products-header">
+        <h1>Products</h1>
+    </div>
+    <div id="products-container">
+        <!-- Products will be dynamically inserted here -->
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    fetchProducts();
+});
+
+function fetchProducts() {
+    fetch('http://localhost:3000/api/products')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(products => {
+            displayProducts(products); // Pass products to display function
+        })
+        .catch(error => {
+            console.error('Error fetching products:', error);
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.textContent = 'Failed to load products';
+        });
+}
+
+function displayProducts(products) {
+    const productsContainer = document.getElementById('products-container');
+
+    productsContainer.innerHTML = ''; // Clear the container
+
+    // Dynamically create HTML for each product
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product-card');
+        productElement.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>${product.id}</p>
+            <p>Category: ${product.category}</p>
+            <p>Expiration Date: ${product.expiration_date ? new Date(product.expiration_date).toLocaleDateString() : 'N/A'}</p>
+            <p>Alert Status: ${product.alert_status}</p>
+        `;
+        productsContainer.appendChild(productElement); // Append each product card
+    });
+}
+
+    </script> 
+
+    <script src="script.js"></script>
+</body>
+</html>

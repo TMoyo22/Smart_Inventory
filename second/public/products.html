@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+            <div class="logo-text-container">      
+                <span class="logo-text">SMART STOCK</span>
+                <span class="logo-subtext">Admin Panel</span>
+            </div>
+            <i class="fas fa-bars" id="menu-toggle"></i>
+        </div>
+        <ul class="menu">
+            <li><a href="dashboard.html" class="nav-link" id="nav-dashboard"><i class="fas fa-home"></i><span class="nav-text">Dashboard</span></a></li>
+            <li><a href="products.html" class="nav-link" id="nav-products"><i class="fas fa-box"></i><span class="nav-text">Products In-Stock</span></a></li>
+            <li><a href="inbox.html" class="nav-link" id="nav-messages"><i class="fas fa-envelope"></i><span class="nav-text">Messages</span></a></li>
+            <li><a href="settings.html" class="nav-link" id="nav-settings"><i class="fas fa-cog"></i><span class="nav-text">Settings</span></a></li>
+            <li><a href="help.html" class="nav-link" id="nav-help"><i class="fas fa-question-circle"></i><span class="nav-text">Help & Support</span></a></li>
+        </ul>
+        <div class="logout" id="logout">
+            <i class="fas fa-sign-out-alt"></i> <span class="nav-text">LOGOUT</span>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="products-header">
+            <h1>Products</h1>
+        </div>
+        <div id="products-container" class="products-grid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchProducts();
+        });
+
+        function fetchProducts() {
+            fetch('http://localhost:3000/api/products')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse the JSON response
+                })
+                .then(products => {
+                    displayProducts(products); // Pass products to display function
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    const productsContainer = document.getElementById('products-container');
+                    productsContainer.textContent = 'Failed to load products';
+                });
+        }
+
+        function displayProducts(products) {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = ''; // Clear the container
+
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('accordion-container');
+                productElement.innerHTML = `
+                    <button class="accordion-button">${product.product_name}
+                        <span>+</span>
+                    </button>
+                    <div class="accordion-panel">
+                        <p><strong>Barcode:</strong> ${product.barcode}</p>
+                        <p><strong>Category:</strong> ${product.product_category}</p>
+                        <p><strong>Expiration Date:</strong> ${product.expiration_date ? new Date(product.expiration_date).toLocaleDateString() : 'N/A'}</p>
+                        <p><strong>Alert Status:</strong> ${product.alert_status}</p>
+                    </div>
+                `;
+                productsContainer.appendChild(productElement);
+            });
+
+            // Add accordion functionality
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const panel = this.nextElementSibling;
+                    if (panel.style.display === 'block') {
+                        panel.style.display = 'none';
+                        this.querySelector('span').textContent = '+';
+                    } else {
+                        panel.style.display = 'block';
+                        this.querySelector('span').textContent = '-';
+                    }
+                });
+            });
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
