@@ -1,4 +1,4 @@
-**The video below shows the system working using C# .net framework**
+**The video below shows the system working using C# .net framework** <br>
 The same application was done using both C# .NET FRAMEWORK and web application there just isn't a video of the web application demonstration. The functionality is the same besides the fact that we implemented GoUPC API which allowed for access to the huge product database
 
 
